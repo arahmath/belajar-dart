@@ -5,7 +5,6 @@ void main() {
   int idnama, jbarang;
   double harga, subtotal = 0, diskon = 0, pajak = 0, grandTotal = 0;
 
-  // list data
   List<String> listBarang = [];
   List<int> listQty = [];
   List<double> listTotal = [];
@@ -54,7 +53,6 @@ void main() {
 
     double totalItem = harga * jbarang;
 
-    // cek jika barang sudah ada sebelumnya
     bool found = false;
     for (int i = 0; i < listBarang.length; i++) {
       if (listBarang[i] == barang) {
@@ -65,7 +63,6 @@ void main() {
       }
     }
 
-    // jika belum ada → tambahkan baru
     if (!found) {
       listBarang.add(barang);
       listQty.add(jbarang);
@@ -77,13 +74,12 @@ void main() {
 
   } while (lagi == "Y");
 
-  // hitung subtotal semua barang
   for (double t in listTotal) {
     subtotal += t;
   }
 
-  diskon = subtotal >= 50000 ? subtotal * 0.05 : 0; // diskon 5% jika belanja >= 50k
-  pajak = (subtotal - diskon) * 0.11; // pajak 11% 
+  diskon = subtotal >= 50000 ? subtotal * 0.05 : 0;
+  pajak = (subtotal - diskon) * 0.11;
   grandTotal = subtotal - diskon + pajak;
 
   print("\n===== STRUK PEMBELIAN =====");
@@ -91,16 +87,10 @@ void main() {
   print("\nBarang\t\tQty\tTotal");
 
   for (int i = 0; i < listBarang.length; i++) {
-<<<<<<< HEAD
-    String barang = listBarang[i];
-
-    if (barang.length < 8) {
-      print("$barang\t\t${listQty[i]}\tRp${listTotal[i]}");
-=======
     String brg = listBarang[i];
+
     if (brg.length < 8) {
       print("$brg\t\t${listQty[i]}\tRp${listTotal[i].toInt()}");
->>>>>>> c4388a0 (update revisi)
     } else {
       print("$brg\t${listQty[i]}\tRp${listTotal[i].toInt()}");
     }
