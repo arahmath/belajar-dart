@@ -71,7 +71,6 @@ void main() {
   for (int i = 0; i < listBarang.length; i++) {
     String barang = listBarang[i];
 
-    // kalau nama barang kurang dari 8 karakter, tambah tab extra biar rapi
     if (barang.length < 8) {
       print("$barang\t\t${listQty[i]}\tRp${listTotal[i]}");
     } else {
